@@ -1,0 +1,22 @@
+# LaTeX build files
+*.aux
+*.log
+*.bcf
+*.blg
+*.bbl
+*.run.xml
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.toc
+*.out
+*.pdf
+
+# Editor backups / temp files
+*~
+*.swp
+*.bak
+
+# OS files
+.DS_Store
+Thumbs.db

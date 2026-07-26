@@ -1,0 +1,55 @@
+{   
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "xelatex ➞ bibtex ➞ xelatex x 2",
+            "tools": [
+                "xelatex",
+                "bibtex",
+                "xelatex",
+                "xelatex"
+            ]
+        },
+        {
+            "name": "pdflatex ➞ bibtex ➞ pdflatex × 2",
+            "tools": [
+                "pdflatex",
+                "bibtex",
+                "pdflatex",
+                "pdflatex"
+            ]
+        },
+        {
+            "name": "pdflatex ➞ biber ➞ pdflatex × 2",
+            "tools": [
+                "pdflatex",
+                "biber",
+                "pdflatex",
+                "pdflatex"
+            ]
+        },
+        {
+            "name": "pdflatex",
+            "tools": [
+                "pdflatex"
+            ]
+        },
+        {
+            "name": "bibtex",
+            "tools": [
+            "bibtex"
+            ]
+        },
+        {
+            "name": "biber",
+            "tools": [
+            "biber"
+            ]
+        },
+        {
+            "name": "xelatex",
+            "tools": [
+                "xelatex"
+            ]
+        },
+    ],
+}

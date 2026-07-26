@@ -1,0 +1,284 @@
+% !TeX program = xelatex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Homework Assignment Article
+% LaTeX Template
+% Version 1.3.1 (ECL) (08/08/17)
+%
+% This template has been downloaded from:
+% Overleaf
+%
+% Original author:
+% Victor Zimmermann (zimmermann@cl.uni-heidelberg.de)
+%
+% License:
+% CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[english, a4paper]{article}
+
+% Language
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[utf8]{inputenc}	% Special characters (i.e. 'á')
+\usepackage[LGR, T1]{fontenc}	% Math
+\usepackage[english]{babel}		% Syllable-sensitive line skips
+\let\latinencoding\relax		% Stupid bug fix
+
+% Word Count
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{verbatim} % For word count input
+
+% Ignore footnotes (optional, disable if required)
+%TC:macro \footnote [ignore]
+
+% Count words (requires texcount)
+
+\newcommand{\wordcount}[1]{
+  \immediate\write18{texcount -nobib -1 -sum #1 > #1-words.sum}
+  \input{#1-words.sum}
+}
+
+\newcommand{\wordcountfull}[1]{
+  \immediate\write18{texcount -nobib -sum #1 > #1-words.sum}
+  \verbatiminput{#1-words.sum}
+}
+
+% Cross-referencing
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{hyperref}		% Use hyperlinks in document
+\usepackage{crossreftools}
+
+% Cross-referenceable Text
+% Usage: \labelText{label}{text}
+% When referencing \ref{label} will print "text"
+\makeatletter
+\def\labelText{%
+  \@ifstar{\@labeltextstarred}{\@labeltext}
+}
+\newcommand{\@labeltextstarred}[2]{%
+  \crtcrossreflabel*{#1}[#2]%
+}
+\newcommand{\@labeltext}[2]{%
+  \crtcrossreflabel{#1}[#2]%
+}
+\makeatother
+
+% Graphs, Tables, etc.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}			% Graphs
+\usepackage{array} 				% Arrays
+
+% New columns types L, C , R:
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+% TikZ
+\usepackage{tikz}
+
+% Extra Symbol Packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{cancel}				% Arithmetic cancellation
+\usepackage{relsize}			% \mathlarger and \mathsmaller
+\usepackage{mathtools}
+
+% Biblatex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{csquotes}
+\usepackage[style=authoryear, backend=bibtex, doi=false, isbn=false,url=false, eprint=false, natbib]{biblatex}
+\addbibresource{ecl.bib} %biblatex only
+\AtEveryBibitem{\clearfield{month}}
+\AtEveryBibitem{\clearfield{day}}
+\usepackage{url}
+
+% Edit Page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Margins
+\addtolength{\hoffset}{-2.25cm}
+\addtolength{\textwidth}{4.5cm}
+\addtolength{\voffset}{-3.25cm}
+\addtolength{\textheight}{5cm}
+\setlength{\parskip}{6pt}
+\setlength{\parindent}{0in}
+
+% Multiple columns
+\usepackage{multicol}
+
+% Fancy Headers
+\usepackage{fancyhdr} % Headers and footers
+\pagestyle{fancy} % All pages have headers and footers
+\fancyhead{}\renewcommand{\headrulewidth}{0pt} % Blank out the default header
+\fancyfoot[L]{} % Custom footer text
+\fancyfoot[C]{} % Custom footer text
+\fancyfoot[R]{\thepage} % Custom footer text
+
+% Enables comments in red on margin
+\newcommand{\note}[1]{\marginpar{\scriptsize \textcolor{red}{#1}}}
+
+% Lists
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{enumitem}
+
+% For 'labeled' itemize labels
+% Usage: \myitem[customitem]\label{mylabel}
+\newcounter{myitemcounter}
+\makeatletter
+\newcommand\myitem[1][]{\item[#1]\refstepcounter{myitemcounter}\def\@currentlabel{#1}}
+\makeatother
+
+% For numbered sentences
+\newcounter{examplesentences}
+
+% For counting inside theorems
+\newcounter{intratheorem}
+
+% Custom Paragraph Alignments
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist 
+
+\newcommand{\fixmargin}[1]{\begin{changemargin}{1em}{1em}#1\end{changemargin}}
+
+% For referenceable definitions/statements
+% Usage: \ndef{label}{title}{text}
+% When referencing: \hyperlink{label}{reftext} will print "reftext"
+\newcommand{\cndef}[3]{\fixmargin{\hypertarget{#1}{\textit{\textbf{#2}}.} #3}}
+
+% Referenceable definition/statement
+% Usage: \ndef{label}{title}{text}
+% When referencing: \ref{label} will print "title"
+\newcommand{\ndef}[3]{\fixmargin{\labelText{\textit{\textbf{#2}}}{#1}. #3}}
+
+% Extra
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{blindtext} % Package to generate dummy text
+
+\usepackage{float} % Improved interface for floating objects
+\usepackage{booktabs} % Enhances quality of tables
+
+\usepackage[yyyymmdd]{datetime} % Uses YEAR-MONTH-DAY format for dates
+\renewcommand{\dateseparator}{-} % Sets date separator to '-'
+
+% Custom Symbols
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Logic symbols
+\newcommand{\thus}{/\kern-3pt\therefore\quad}	% Therefore
+\newcommand{\nec}{\square}		% Necessary (required: amssymb)
+\newcommand{\pos}{\Diamond}		% Possible (required: amssymb)
+%\input{fitch.sty}				% Fitch-style proofs
+
+% Parentheses, Brackets and Quotes
+\newcommand{\ang}[1]{\left\langle #1 \right\rangle}				% Angled brackets
+\newcommand{\tang}[1]{\langle #1 \rangle}				% Angled brackets in text
+\newcommand{\tquote}[1]{\text{`}#1\text{'}}					% Text quotes in math mode
+\newcommand{\aquote}[1]{\left\ulcorner #1 \right\urcorner}					% Angled quotes
+\newcommand{\taquote}[1]{\ensuremath{\ulcorner}#1\ensuremath{\urcorner}}	% Text angled quotes
+\newcommand{\brac}[1]{[\kern-1.7pt[ #1 ]\kern-1.7pt]}			% Double brackets
+\newcommand{\tbrac}[1]{\ensuremath{[\kern-1.7pt[}#1\ensuremath{]\kern-1.7pt]}} % Text double brackets
+
+% Math symbols
+\newcommand{\comp}[1]{{#1}^\mathsf{c}} % Set complement
+\newcommand{\N}{\ensuremath{\mathbb{N}}} % Natural numbers
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}} % Integers
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}} % Rationals
+\newcommand{\R}{\ensuremath{\mathbb{R}}} % Real numbers
+\providecommand\C{}\renewcommand{\C}{\ensuremath{\mathbb{C}}} % Complex numbers
+\DeclareMathOperator{\dom}{dom} % Domain
+\DeclareMathOperator{\cod}{cod} % Codomain
+
+% Fonts
+%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fontspec}
+\setmainfont{EB Garamond}
+
+% Document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+% Title Section
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{template_assignment} % Article title
+\fancyhead[C]{}
+\hrule \medskip % Upper rule
+\begin{minipage}{0.24\textwidth} % Left side of title section
+\raggedright
+Oliver Wolf\\[6pt] % Your lecture or course
+oliver.wolf@rutgers.edu
+\end{minipage}
+\begin{minipage}{0.5\textwidth} % Center of title section
+\centering 
+\large % Title text size
+Skepticism I: Descartes' \textit{Meditations}
+\\ % Assignment title and number
+\normalsize % Subtitle text size
+\emph{} % Subtitle
+\end{minipage}
+\begin{minipage}{0.24\textwidth} % Right side of title section
+\raggedleft
+September 4, 2026\\[6pt] % Date
+Rutgers University % Location
+\end{minipage}
+\medskip\hrule % Lower rule
+\bigskip
+
+% Content
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{First Meditation}
+
+\subsection*{The Cartesian Method}
+
+Descartes 
+
+\section{Descartes' \emph{Meditations}}
+
+In Meditation I, Descartes systematically constructs skeptical hypotheses for escalating levels of skepticism.
+
+\begin{enumerate}[label={\arabic*.}]
+  \item Ordinary perceptual error cases (local skeptical hypothesis)
+  \item Dream hypothesis (global perceptual skeptical hypothesis)
+  \item Evil Demon Hypothesis (maximally global skeptical hypothesis)
+\end{enumerate}
+
+The Evil Demon Hypothesis is especially powerful because:
+
+\begin{itemize}
+  \item It generates \emph{one} skeptical hypothesis for virtually any $P$.
+  \item Even mathematical and logical truths become doubtful.
+\end{itemize}
+
+Descartes does not immediately reject the Certainty Principle.
+Instead, he embraces radical doubt and attempts to rebuild knowledge from a secure foundation (Meditation II onward).
+
+\subsection*{The \emph{Cogito}}
+
+Descartes finds \emph{one} belief that is not subject to doubt via skeptical reflection:
+
+\begin{itemize}
+  \item[] \textbf{\emph{Cogito}:} I exist.
+\end{itemize}
+
+Why? Two reasons. One particular to the skeptical scenario Descartes is considering, and one general.
+
+\begin{itemize}
+  \item[] \textbf{Specific reason:}\\ In the skeptical scenario, the Demon has to deceive \emph{me}, so I must exist.\\[-6pt]
+  \item[] \textbf{General reason:} Doubt about one's one existence requires accepting the following:
+  \begin{itemize}[leftmargin=4em]
+    \item[(D)] ``I doubt that I exist.''
+  \end{itemize}
+  But accepting (D) implies accepting one's own existence.
+\end{itemize}
+
+Also, we know, even if all else is doubted, that we \emph{think}, and it follows from this that we \emph{exist}.
+
+
+\end{document}
