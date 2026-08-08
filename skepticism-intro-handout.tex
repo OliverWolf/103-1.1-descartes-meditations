@@ -289,14 +289,14 @@ Descartes concludes that one knows, if nothing else, that one exists. This canno
 
 \section{Skepticism Generally}
 
-Descartes' Dreaming and Evil Demon scenarios are examples of \textit{skeptical hypotheses}. These are bizarre scenarios in which everything would seem to us as it does now, but in fact many of our beliefs would be false.
+Descartes' Dreaming and Evil Demon scenarios are examples of \textit{skeptical scenarios}. These are bizarre scenarios in which everything would seem to us as it does now, but in fact many of our beliefs would be false.
 
 \begin{itemize}
 	\item Skeptical scenarios are used to try to show that some large domain of beliefs (e.g. perceptual beliefs) do not constitute knowledge. A \textit{skeptic} is someone who believes that we don't know anything in the relevant domain.
 	\begin{itemize}
 		\item E.g., you can be a skeptic \textit{about} perceptual beliefs and mathematics (as Descartes was) via a skeptical scenario that threatens both perceptual and mathematical beliefs (e.g., the Evil Demon scenario), but one could alternatively be a skeptic about perceptual beliefs without being a skeptic about mathematics---for example, if you thought that something was wrong with the Evil Demon scenario, but endorsed the Dreaming scenario. 
 	\end{itemize}
-	\item Descartes' Evil Demon scenario is notable for being perhaps the most extreme skeptical hypothesis, since it makes you doubt not only all your perceptual beliefs, but also even seemingly the most certain domains of inquiry like mathematics.
+	\item Descartes' Evil Demon scenario is notable for being perhaps the most extreme skeptical scenario, since it makes you doubt not only all your perceptual beliefs, but also even seemingly the most certain domains of inquiry like mathematics.
 	\item But there are other well-known skeptical scenarios that threaten smaller domains of knowledge. Here are a few:
 	\begin{itemize}
 		\item Solipsism: the physical world I perceive is real, but I am the only conscious being. Other minds do not exist.
@@ -322,15 +322,47 @@ Skeptics are trying to target condition (3): they argue that their skeptical sce
 
 If the skeptic is right, then even if our beliefs happen to be true, they don't count as knowledge; rather, they are merely accidentally true beliefs. For example, even if in fact I'm \textit{not} dreaming, if Descartes is right then I still don't \textit{know} that I have hands: I merely believe that I have hands, and I happen to be correct.
 
-\section{Resisting Skepticism?}
+\subsection*{The Certainty Principle}
 
-The force of skeptical scenarios depends on a crucial assumption: that a belief needs to be certain to count as knowledge. This is sometimes called the \textbf{Certainty Principle}. Without the Certainty Principle, the possibility of a skeptical scenario does not entail that we lack knowledge.
+How do skeptical scenarios undermine our justification in our beliefs, according to the skeptic? Here, we need to extract a suppressed premise.
+
+For the skeptic's argument to work, she needs to assume something like the following:
 
 \begin{itemize}
-	\item Today, most philosophers think that it's probably impossible to refute the skeptic if you grant all of her assumptions. Rather, skepticism can only be resisted by rejecting one of the skeptic's starting assumptions.
-	\item Rejecting the Certainty Principle is one good way to do that.
-	\item But this is not without cost. After all, the Certainty Principle is appealing. If my evidence is compatible with a scenario in which $p$ is false, do I \textit{really} know that $p$ is true??
+	\item[] \textbf{Certainty Principle:}\\[4pt] You know that $P$ only if you can rule out every scenario in which $P$ is false (i.e., in which $\neg P$).
 \end{itemize}
+
+Without the Certainty Principle, the possibility of a skeptical scenario does not entail that we lack knowledge.
+
+\section{Formalizing Skeptical Arguments}
+
+Now that we have a better understanding of skeptical arguments and how they work, let's try to formalize a general skeptical argument so we can evaluate it further. Here's my attempt:\\
+
+Where $P$ is some ordinary belief, e.g. that I have hands, ...
+
+\begin{enumerate}[label={(\arabic*)}]
+	\item I believe that $P$. (Premise)
+	\item There is a skeptical scenario SC such that
+	\begin{itemize}
+		\item $P$ is false in SC, and
+		\item my total evidence is exactly the same as it is now. (Premise)
+	\end{itemize}
+	\item Therefore, I cannot rule out SC. (From 1, 2)
+	\item \textbf{Certainty Principle:} I know that $P$ only if I can rule out all scenarios in which $P$ is false. (Premise)
+	\item Therefore, I do not know that $P$. (From 3, 4)
+\end{enumerate}
+
+\section{Resisting Skepticism?}
+
+Today, most philosophers think that it's probably impossible to refute the skeptic if you grant all of her assumptions. Rather, skepticism can only be resisted by rejecting one of the skeptic's starting assumptions.
+
+Rejecting the Certainty Principle is one good way to do that. The Certainty Principle is extremely demanding. It implies that:
+\begin{itemize}
+	\item Knowledge requires eliminating all falsifying alternatives, i.e., all $\neg P$ scenarios.
+	\item If even one indistinguishable $\neg P$ scenario remains, knowledge fails.
+\end{itemize}
+
+But rejecting the Certainty Principle is not without cost. Though it is demanding, the Certainty Principle also has intuitive appeal: if all of my evidence is compatible with a scenario in which $p$ is false, do I \textit{really} know that $p$ is true??\\
 
 For the rest of Unit 1, we'll be looking at two different kinds of replies to skeptical arguments.
 
